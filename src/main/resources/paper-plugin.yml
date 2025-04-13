@@ -1,0 +1,9 @@
+name: Kotlin
+main: xyz.gmitch215.kotlinmc.Spigot
+bootstrapper: xyz.gmitch215.kotlinmc.PaperBootstrap
+version: ${project.ext.kotlin_version}
+description: ${project.description}
+api-version: '1.21'
+author: gmitch215
+folia-supported: true
+website: ${project.ext.url}

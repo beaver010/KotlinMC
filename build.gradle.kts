@@ -1,8 +1,4 @@
-import java.io.BufferedReader
 import java.io.FileNotFoundException
-import java.io.InputStreamReader
-import java.net.HttpURLConnection
-import java.net.URL
 
 plugins {
     id("com.github.johnrengelman.shadow") version "8.1.1"
@@ -18,8 +14,7 @@ val kotlinIoVersion = version("kotlinx-io")
 val dateTimeVersion = version("kotlinx-datetime")
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    toolchain.languageVersion.set(JavaLanguageVersion.of("21"))
 }
 
 group = "xyz.gmitch215.kotlinmc"
@@ -76,7 +71,7 @@ repositories {
     maven("https://plugins.gradle.org/m2/")
     maven("https://oss.sonatype.org/content/repositories/snapshots")
     maven("https://oss.sonatype.org/content/repositories/central")
-    maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
+    // maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
     maven("https://repo.papermc.io/repository/maven-public/")
     maven("https://repo.spongepowered.org/repository/maven-public/")
 }
@@ -92,10 +87,11 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-io-core:${kotlinIoVersion}")
     implementation("org.jetbrains.kotlinx:kotlinx-datetime:${dateTimeVersion}")
 
-    compileOnly("org.spigotmc:spigot-api:1.8-R0.1-SNAPSHOT")
+    // compileOnly("org.spigotmc:spigot-api:1.8-R0.1-SNAPSHOT")
     compileOnly("net.md-5:bungeecord-api:1.8-SNAPSHOT")
     compileOnly("com.velocitypowered:velocity-api:3.1.1")
     compileOnly("org.spongepowered:spongeapi:8.0.0")
+    compileOnly("io.papermc.paper:paper-api:1.21.5-R0.1-SNAPSHOT")
 }
 
 fun version(name: String): String = File("versions/${name}.txt").bufferedReader().use { it.readLine() }
